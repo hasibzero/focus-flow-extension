@@ -1,0 +1,214 @@
+/* Base styles for hiding the feed */
+.nfe-hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Container for the quote */
+.nfe-quote-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  padding: 40px 0;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.5s ease;
+}
+
+/* --- Theme Styles (remain the same) --- */
+.nfe-quote-container.theme-light .nfe-quote-content {
+  background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+.nfe-quote-container.theme-light .nfe-quote-text { color: #2c3e50; }
+.nfe-quote-container.theme-light .nfe-quote-author { color: #5d6d7e; }
+.nfe-quote-container.theme-light .nfe-new-quote-btn { background: linear-gradient(135deg, #6a82fb 0%, #fc5c7d 100%); }
+.nfe-quote-container.theme-light .nfe-focus-message { color: #667eea; }
+
+.nfe-quote-container.theme-dark .nfe-quote-content {
+  background: linear-gradient(135deg, #2b3b4f 0%, #3a4b60 100%);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  color: #e0e0e0;
+}
+.nfe-quote-container.theme-dark .nfe-quote-text { color: #f8f9fa; }
+.nfe-quote-container.theme-dark .nfe-quote-author { color: #aeb6bf; }
+.nfe-quote-container.theme-dark .nfe-new-quote-btn { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+.nfe-quote-container.theme-dark .nfe-focus-message { color: #f093fb; }
+
+.nfe-quote-container.theme-nature .nfe-quote-content {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+  color: #2c3e50;
+}
+.nfe-quote-container.theme-nature .nfe-quote-text { color: #1e3c72; }
+.nfe-quote-container.theme-nature .nfe-quote-author { color: #2a5298; }
+.nfe-quote-container.theme-nature .nfe-new-quote-btn { background: linear-gradient(135deg, #134e5e 0%, #71b280 100%); }
+.nfe-quote-container.theme-nature .nfe-focus-message { color: #134e5e; }
+
+/* General content box styling */
+.nfe-quote-content {
+  text-align: center;
+  padding: 70px 50px;
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+  max-width: 780px;
+  width: 100%;
+  animation: fadeInPop 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styles for Timer and Toggle */
+.nfe-timer-display {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  font-size: 0.9em;
+  opacity: 0.6;
+}
+
+.nfe-timer-toggle {
+  margin-top: 25px;
+  padding: 8px 16px;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  background: transparent;
+  color: rgba(128, 128, 128, 0.8);
+  border-radius: 20px;
+  font-size: 0.8em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nfe-timer-toggle:hover {
+  border-color: rgba(128, 128, 128, 0.8);
+  background: rgba(128, 128, 128, 0.1);
+}
+
+.nfe-timer-toggle.active {
+  border-color: #6a82fb;
+  color: #6a82fb;
+  font-weight: bold;
+}
+
+.theme-dark .nfe-timer-toggle {
+  color: rgba(200, 200, 200, 0.8);
+  border-color: rgba(200, 200, 200, 0.5);
+}
+
+.theme-dark .nfe-timer-toggle:hover {
+  background: rgba(200, 200, 200, 0.1);
+}
+
+.theme-dark .nfe-timer-toggle.active {
+  border-color: #f093fb;
+  color: #f093fb;
+}
+
+@keyframes fadeInPop {
+  0% { opacity: 0; transform: scale(0.9) translateY(30px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.nfe-quote-content::before {
+  content: '';
+  position: absolute; top: -30%; left: -30%; width: 160%; height: 160%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 65%);
+  animation: rotateShine 15s linear infinite alternate;
+  pointer-events: none; opacity: 0.7;
+}
+
+@keyframes rotateShine {
+  from { transform: rotate(0deg); } to { transform: rotate(360deg); }
+}
+
+.nfe-quote-icon {
+  font-size: 3.2em; margin-bottom: 30px;
+  animation: floatBounce 4s ease-in-out infinite alternate;
+  display: inline-block; filter: drop-shadow(0 5px 8px rgba(0,0,0,0.1));
+}
+
+@keyframes floatBounce {
+  0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); }
+}
+
+.nfe-quote-text {
+  font-size: 2.5em; line-height: 1.35; margin: 25px 0 35px 0;
+  font-weight: 500; letter-spacing: -0.03em; position: relative;
+  z-index: 1; font-family: 'Playfair Display', serif; max-width: 90%;
+  text-rendering: optimizeLegibility;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.nfe-quote-author {
+  font-size: 1.25em; opacity: 0.75; margin-top: 20px; font-style: italic;
+  position: relative; z-index: 1; font-weight: 300;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.nfe-quote-fade {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.nfe-button-wrapper {
+    margin-top: 50px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.nfe-new-quote-btn, .nfe-save-image-btn {
+  margin-top: 0;
+  padding: 16px 40px; border: none; color: white;
+  border-radius: 50px; font-size: 1.1em; font-weight: 600; cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); letter-spacing: 0.05em;
+  text-transform: uppercase; position: relative; overflow: hidden; outline: none;
+}
+
+.nfe-save-image-btn {
+    background: #555;
+}
+
+.nfe-new-quote-btn:hover, .nfe-save-image-btn:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25); filter: brightness(1.1);
+}
+
+.nfe-new-quote-btn:active, .nfe-save-image-btn:active {
+  transform: translateY(-2px) scale(0.98);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nfe-focus-message {
+  margin-top: 40px; font-size: 1.05em; opacity: 0.7;
+  position: relative; z-index: 1; font-weight: 300;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nfe-quote-content { padding: 50px 30px; }
+  .nfe-quote-text { font-size: 2em; }
+  .nfe-quote-author { font-size: 1.1em; }
+  .nfe-button-wrapper { flex-direction: column; }
+  .nfe-new-quote-btn, .nfe-save-image-btn { padding: 14px 30px; font-size: 1em; }
+  .nfe-focus-message { font-size: 0.95em; margin-top: 30px; }
+}
+
+@media (max-width: 480px) {
+  .nfe-quote-content { padding: 40px 25px; }
+  .nfe-quote-text { font-size: 1.6em; }
+  .nfe-quote-icon { font-size: 2.5em; }
+  .nfe-quote-author { font-size: 1em; }
+  .nfe-new-quote-btn, .nfe-save-image-btn { padding: 12px 25px; font-size: 0.9em; }
+  .nfe-focus-message { font-size: 0.9em; margin-top: 25px; }
+}
+/* Black and white "Bedtime Mode" */
+.nfe-bedtime-mode {
+  filter: grayscale(100%);
+}

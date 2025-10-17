@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Feed Eradicator - Settings</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌟 News Feed Eradicator</h1>
+            <p>Stay focused and productive</p>
+        </header>
+        
+        <div class="settings-section support-section">
+            <h2>Support the Project</h2>
+            <p>If you find this extension helpful, please consider supporting its continued development. Thank you!</p>
+            <br>
+            <a href="https://buymeacoffee.com/hasibsarkar" target="_blank" class="support-btn">
+                ❤️ Support the Project
+            </a>
+        </div>
+
+        <div class="settings-section">
+            <h2>Hide Feeds For</h2>
+            <div class="platforms">
+                <label class="platform-option">
+                    <input type="checkbox" id="hideFacebook">
+                    <span class="platform-label">
+                        <span class="platform-icon">📘</span>
+                        Facebook
+                    </span>
+                </label>
+                <label class="platform-option">
+                    <input type="checkbox" id="hideTwitter">
+                    <span class="platform-label">
+                        <span class="platform-icon">🐦</span>
+                        Twitter/X
+                    </span>
+                </label>
+                <label class="platform-option">
+                    <input type="checkbox" id="hideInstagram">
+                    <span class="platform-label">
+                        <span class="platform-icon">📷</span>
+                        Instagram
+                    </span>
+                </label>
+                <label class="platform-option">
+                    <input type="checkbox" id="hideYoutube">
+                    <span class="platform-label">
+                        <span class="platform-icon">📺</span>
+                        YouTube
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h2>Timer Settings</h2>
+            <div class="timer-options">
+                <button class="timer-btn" data-duration="off">Off</button>
+                <button class="timer-btn" data-duration="1">1 min</button>
+                <button class="timer-btn" data-duration="5">5 min</button>
+                <button class="timer-btn" data-duration="15">15 min</button>
+                <button class="timer-btn" data-duration="30">30 min</button>
+                <button class="timer-btn" data-duration="60">1 hour</button>
+                <button class="timer-btn" data-duration="120">2 hours</button>
+                <button class="timer-btn" data-duration="forever">Forever</button>
+            </div>
+            <div id="timer-status" class="timer-status"></div>
+        </div>
+
+        <div class="settings-section">
+            <h2>Theme</h2>
+            <div class="theme-options">
+                <button class="theme-btn" data-theme="light">
+                    <span class="theme-icon">☀️</span>
+                    Light
+                </button>
+                <button class="theme-btn" data-theme="dark">
+                    <span class="theme-icon">🌙</span>
+                    Dark
+                </button>
+                <button class="theme-btn" data-theme="nature">
+                    <span class="theme-icon">🌿</span>
+                    Nature
+                </button>
+            </div>
+        </div>
+        <div class="settings-section">
+            <h2>Bedtime Mode (Black & White)</h2>
+            <p style="margin-bottom: 20px; color: #666;">Apply a grayscale filter to reduce visual stimulation on selected sites.</p>
+            <div class="platforms">
+                <label class="platform-option">
+                    <input type="checkbox" id="bedtimeFacebook">
+                    <span class="platform-label">
+                        <span class="platform-icon">📘</span>
+                        Facebook
+                    </span>
+                </label>
+                <label class="platform-option">
+                    <input type="checkbox" id="bedtimeTwitter">
+                    <span class="platform-label">
+                        <span class="platform-icon">🐦</span>
+                        Twitter/X
+                    </span>
+                </label>
+                <label class="platform-option">
+                    <input type="checkbox" id="bedtimeInstagram">
+                    <span class="platform-label">
+                        <span class="platform-icon">📷</span>
+                        Instagram
+                    </span>
+                </label>
+                <label class="platform-option">
+                    <input type="checkbox" id="bedtimeYoutube">
+                    <span class="platform-label">
+                        <span class="platform-icon">📺</span>
+                        YouTube
+                    </span>
+                </label>
+            </div>
+        </div>
+        <div class="save-status" id="saveStatus">Settings saved automatically ✓</div>
+    </div>
+
+    <script src="settings.js"></script>
+</body>
+</html>
