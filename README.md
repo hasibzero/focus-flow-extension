@@ -52,5 +52,5 @@ If Focus Flow helps you stay focused and productive, please consider supporting 
 </a>
 
 ## Screenshots/ Quick look
- </img src="download.png">
+ </img src="https://github.com/hasibzero/focus-flow-extension/blob/main/download.png">
 
