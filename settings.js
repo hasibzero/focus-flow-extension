@@ -51,11 +51,16 @@ function showSaveStatus() {
   status.classList.add('show');
   setTimeout(() => { status.classList.remove('show'); }, 2000);
 }
+// START: MODIFIED FUNCTION
 function applyTheme(theme) {
   document.body.className = '';
   if (theme === 'dark') { document.body.classList.add('dark-theme'); }
   else if (theme === 'nature') { document.body.classList.add('nature-theme'); }
+  else if (theme === 'glass') { document.body.classList.add('glass-theme'); }
+  // Light theme is default (no class)
 }
+// END: MODIFIED FUNCTION
+
 function updateTimerButtons(duration) {
   document.querySelectorAll('.timer-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.duration === duration);
