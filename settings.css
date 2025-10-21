@@ -107,14 +107,19 @@ header h1 {
   background-clip: text;
 }
 
-.dark-theme header h1 {
+.dark-theme header h1,
+.glass-theme header h1 { /* START: ADDED .glass-theme */
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 header p { color: #666; font-size: 16px; }
-.dark-theme header p { color: #aaa; }
+.dark-theme header p,
+.glass-theme header p { /* START: ADDED .glass-theme */
+  color: #aaa; 
+}
+
 
 .settings-section {
   margin-bottom: 40px;
@@ -134,7 +139,11 @@ header p { color: #666; font-size: 16px; }
 
 
 .settings-section h2 { margin-bottom: 20px; color: #333; font-size: 20px; }
-.dark-theme .settings-section h2 { color: #e0e0e0; }
+.dark-theme .settings-section h2,
+.glass-theme .settings-section h2 { /* START: ADDED .glass-theme */
+  color: #e0e0e0; 
+}
+
 
 .platforms {
   display: grid;
@@ -167,6 +176,13 @@ header p { color: #666; font-size: 16px; }
 .platform-option:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); }
 .platform-option input[type="checkbox"] { display: none; }
 .platform-option input[type="checkbox"]:checked + .platform-label { color: #667eea; font-weight: 600; }
+
+/* START: REVISED TWEAK FOR GLASS THEME (DARK) */
+.glass-theme .platform-option input[type="checkbox"]:checked + .platform-label {
+  color: #667eea;
+}
+/* END: REVISED TWEAK FOR GLASS THEME (DARK) */
+
 .platform-option input[type="checkbox"]:checked + .platform-label::before { content: '✓ '; color: #4CAF50; font-weight: bold; }
 .platform-label { display: flex; align-items: center; gap: 10px; font-size: 16px; }
 .platform-icon { font-size: 24px; }
@@ -245,3 +261,61 @@ header p { color: #666; font-size: 16px; }
   .timer-options, .theme-options { flex-direction: column; }
   .timer-btn, .theme-btn { width: 100%; }
 }
+
+/* START: ADDED STYLES FOR CUSTOM QUOTE FORM */
+.custom-quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.quote-input {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quote-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+.dark-theme .quote-input {
+  background: #333;
+  border-color: #555;
+  color: #eee;
+}
+
+.glass-theme .quote-input {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.custom-quote-form .support-btn {
+  align-self: flex-start; /* Don't stretch the button */
+}
+
+.quote-save-status {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #4CAF50;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dark-theme .quote-save-status {
+  color: #81c784;
+}
+
+.quote-save-status.show {
+  opacity: 1;
+}
+/* END: ADDED STYLES FOR CUSTOM QUOTE FORM */

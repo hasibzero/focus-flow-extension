@@ -46,6 +46,9 @@ setInterval(() => {
 
 
 // 🎯 NEW: Smart reload logic
+// START: ADDED KEY
+const CUSTOM_QUOTES_KEY = 'customQuotes';
+
 const platformDomains = {
     hideFacebook: ['*://*.facebook.com/*'],
     bedtimeFacebook: ['*://*.facebook.com/*'],
@@ -74,7 +77,11 @@ function reloadTabs(urlsToReload) {
 }
 
 chrome.storage.onChanged.addListener((changes, namespace) => {
-    if (namespace === 'local' && changes.settings) {
+    // START: MODIFIED LISTENER
+    if (namespace !== 'local') return;
+
+    // Check if settings changed
+    if (changes.settings) {
         const oldSettings = changes.settings.oldValue;
         const newSettings = changes.settings.newValue;
 
@@ -99,4 +106,20 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
             }
         }
     }
+
+    // Check if custom quotes changed
+    if (changes[CUSTOM_QUOTES_KEY]) {
+        // New quotes were added. We need to reload all active tabs
+        // so their content.js scripts can fetch the new list.
+        
+        // Get all unique URLs from platformDomains
+        const allUrlsSet = new Set();
+        Object.values(platformDomains).forEach(urlList => {
+            urlList.forEach(url => allUrlsSet.add(url));
+        });
+        const allUrlsToReload = Array.from(allUrlsSet);
+        
+        reloadTabs(allUrlsToReload);
+    }
+    // END: MODIFIED LISTENER
 });

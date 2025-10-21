@@ -1,5 +1,8 @@
 // focus-flow-extension/settings.js
 
+// START: ADDED KEY
+const CUSTOM_QUOTES_KEY = 'customQuotes';
+
 let currentSettings = {
   // Hide Feed Settings
   hideFacebook: true,
@@ -51,16 +54,12 @@ function showSaveStatus() {
   status.classList.add('show');
   setTimeout(() => { status.classList.remove('show'); }, 2000);
 }
-// START: MODIFIED FUNCTION
 function applyTheme(theme) {
   document.body.className = '';
   if (theme === 'dark') { document.body.classList.add('dark-theme'); }
   else if (theme === 'nature') { document.body.classList.add('nature-theme'); }
   else if (theme === 'glass') { document.body.classList.add('glass-theme'); }
-  // Light theme is default (no class)
 }
-// END: MODIFIED FUNCTION
-
 function updateTimerButtons(duration) {
   document.querySelectorAll('.timer-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.duration === duration);
@@ -86,6 +85,38 @@ function showTimerStatus(endTime) {
   }
   updateStatus();
 }
+
+// START: ADDED FUNCTION TO SAVE CUSTOM QUOTE
+function saveCustomQuote() {
+  const textInput = document.getElementById('customQuoteText');
+  const authorInput = document.getElementById('customQuoteAuthor');
+  const status = document.getElementById('quoteSaveStatus');
+
+  const text = textInput.value.trim();
+  const author = authorInput.value.trim();
+
+  if (!text || !author) {
+    status.textContent = 'Please fill out both fields.';
+    status.classList.add('show');
+    setTimeout(() => { status.classList.remove('show'); }, 2000);
+    return;
+  }
+
+  const newQuote = { text, author };
+
+  chrome.storage.local.get([CUSTOM_QUOTES_KEY], (result) => {
+    const quotes = result[CUSTOM_QUOTES_KEY] || [];
+    quotes.push(newQuote);
+    chrome.storage.local.set({ [CUSTOM_QUOTES_KEY]: quotes }, () => {
+      textInput.value = '';
+      authorInput.value = '';
+      status.textContent = 'Quote saved successfully!';
+      status.classList.add('show');
+      setTimeout(() => { status.classList.remove('show'); }, 2000);
+    });
+  });
+}
+// END: ADDED FUNCTION TO SAVE CUSTOM QUOTE
 
 
 // Event listeners
@@ -129,4 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
       saveSettings();
     });
   });
+
+  // START: ADDED EVENT LISTENER FOR NEW BUTTON
+  document.getElementById('saveQuoteBtn').addEventListener('click', saveCustomQuote);
+  // END: ADDED EVENT LISTENER FOR NEW BUTTON
 });

@@ -1,7 +1,10 @@
 // focus-flow-extension/content.js
 
-// Quotes database (remains the same)
-const quotes = [
+// START: MODIFIED QUOTES LOGIC
+const CUSTOM_QUOTES_KEY = 'customQuotes';
+
+// This is now the fallback/default list
+const defaultQuotes = [
     // --- Allama Iqbal ---
     { text: "The ultimate aim of the ego is not to see something, but to be something.", author: "Allama Iqbal" },
     { text: "Nations are born in the hearts of poets, they prosper and die in the hands of politicians.", author: "Allama Iqbal" },
@@ -51,9 +54,7 @@ const quotes = [
     { text: "This is a subtle truth. Whatever you love you are.", author: "Rumi" },
     { text: "In your light I learn how to love. In your beauty, how to make poems.", author: "Rumi" },
     { text: "Everything in the universe is within you. Ask all from yourself.", author: "Rumi" },
-    { text: "Goodbyes are only for those who love with their eyes. Because for those who love with heart and soul there is no such thing as separation.", author: "Rumi" },
-    { text: "Gratitude is the wine for the soul. Go on. Get drunk.", author: "Rumi" },
-    { text: "I am not this hair, I am not this skin, I am the soul that lives within.", author: "Rumi" },
+    { text: "When the soul lies down in that grass, the world is too full to talk about ideas, language, even the phrase each other doesn't make any sense.", author: "Rumi" }, 
     { text: "Live life as if everything is rigged in your favor.", author: "Rumi" },
     { text: "The garden of the world has no limit except in your mind.", author: "Rumi" },
     { text: "Wherever you stand, be the soul of that place.", author: "Rumi" },
@@ -124,6 +125,10 @@ const quotes = [
     { text: "Do not belittle any good deed, even meeting your brother with a cheerful face.", author: "Prophet Muhammad (PBUH)" },
     { text: "The fruit of knowledge is to be humble.", author: "Imam Al-Ghazali" }
 ];
+
+// This will be populated by init()
+let quotes = [];
+// END: MODIFIED QUOTES LOGIC
 
 // Get current site
 function getCurrentSite() {
@@ -208,6 +213,7 @@ function createQuoteDisplay(currentTheme) {
     quoteAuthorEl.classList.add('nfe-quote-fade');
 
     setTimeout(() => {
+        // This now uses the global 'quotes' array, which is merged
         const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
         quoteTextEl.textContent = `"${randomQuote.text}"`;
         quoteAuthorEl.textContent = `— ${randomQuote.author}`;
@@ -283,7 +289,15 @@ function createQuoteDisplay(currentTheme) {
   }
 
   // --- Initial Setup ---
-  changeQuote();
+  // START: Check if quotes array is populated
+  if (quotes.length > 0) {
+    changeQuote();
+  } else {
+    // This is a fallback in case storage fails, though unlikely
+    quoteTextEl.textContent = "Loading quotes...";
+    quoteAuthorEl.textContent = "— Focus Flow";
+  }
+  // END: Check
   startAutoRefresh();
 
   return container;
@@ -346,7 +360,14 @@ function init() {
   const site = getCurrentSite();
   if (!site) return;
 
-  chrome.storage.local.get(['settings'], (result) => {
+  // START: MODIFIED STORAGE CALL
+  chrome.storage.local.get(['settings', CUSTOM_QUOTES_KEY], (result) => {
+    
+    // 1. Populate the quotes array
+    const customQuotes = result[CUSTOM_QUOTES_KEY] || [];
+    quotes = [...defaultQuotes, ...customQuotes];
+    
+    // 2. Continue with settings logic
     if (!result || !result.settings) {
         console.log("News Feed Eradicator: No settings found, not running.");
         return;
@@ -370,6 +391,7 @@ function init() {
       hideFeedForSite(site, currentTheme);
     }
   });
+  // END: MODIFIED STORAGE CALL
 }
 
 init();
