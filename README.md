@@ -18,6 +18,7 @@ In a world full of digital noise, maintaining focus is a superpower. Social medi
 - **Flexible Timer**: Grant yourself temporary, controlled access to your feed for a set duration—from one minute to two hours.
 - **Bedtime Mode**: Protect your eyes and mind at night with a grayscale (black and white) filter on any supported site.
 - **Save & Share Quotes**: Download your favorite quotes as beautiful PNG images to save or share.
+- **Custom Quotes**: Add your favourite author's quote.
 
 ## 🚀 Installation
 
