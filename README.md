@@ -58,5 +58,8 @@ If Focus Flow helps you stay focused and productive, please consider supporting 
 </a>
 
 ## Screenshots/ Quick look
+
+<iframe style="border: none;" src="https://cards.producthunt.com/cards/products/1121688" width="500" height="405" frameborder="0" scrolling="no" allowfullscreen></iframe>
+
 <img src="download.png" alt="QV">
 
