@@ -137,7 +137,7 @@ function loadCustomQuotes() {
 
     document.querySelectorAll('.delete-quote-btn').forEach(button => {
       button.addEventListener('click', (e) => {
-        const index = e.target.dataset.index;
+        const index = parseInt(e.target.dataset.index, 10);
         deleteCustomQuote(index);
       });
     });
