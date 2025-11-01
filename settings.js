@@ -113,15 +113,53 @@ function saveCustomQuote() {
       status.textContent = 'Quote saved successfully!';
       status.classList.add('show');
       setTimeout(() => { status.classList.remove('show'); }, 2000);
+      loadCustomQuotes();
     });
   });
 }
 // END: ADDED FUNCTION TO SAVE CUSTOM QUOTE
 
+// START: ADDED FUNCTIONS TO LOAD AND DELETE CUSTOM QUOTES
+function loadCustomQuotes() {
+  chrome.storage.local.get([CUSTOM_QUOTES_KEY], (result) => {
+    const quotes = result[CUSTOM_QUOTES_KEY] || [];
+    const quotesList = document.getElementById('customQuotesList');
+    quotesList.innerHTML = '';
+    quotes.forEach((quote, index) => {
+      const quoteElement = document.createElement('div');
+      quoteElement.className = 'custom-quote';
+      quoteElement.innerHTML = `
+        <span>"${quote.text}" - ${quote.author}</span>
+        <button class="delete-quote-btn" data-index="${index}">Delete</button>
+      `;
+      quotesList.appendChild(quoteElement);
+    });
+
+    document.querySelectorAll('.delete-quote-btn').forEach(button => {
+      button.addEventListener('click', (e) => {
+        const index = e.target.dataset.index;
+        deleteCustomQuote(index);
+      });
+    });
+  });
+}
+
+function deleteCustomQuote(index) {
+  chrome.storage.local.get([CUSTOM_QUOTES_KEY], (result) => {
+    const quotes = result[CUSTOM_QUOTES_KEY] || [];
+    quotes.splice(index, 1);
+    chrome.storage.local.set({ [CUSTOM_QUOTES_KEY]: quotes }, () => {
+      loadCustomQuotes();
+    });
+  });
+}
+// END: ADDED FUNCTIONS TO LOAD AND DELETE CUSTOM QUOTES
+
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
   loadSettings();
+  loadCustomQuotes();
   
   // A single event listener for all platform checkboxes
   document.querySelectorAll('.platform-option input[type="checkbox"]').forEach(checkbox => {

@@ -26,7 +26,7 @@
         "*://*.instagram.com/*",
         "*://*.youtube.com/*"
       ],
-      "js": ["dom-to-image.min.js", "content.js"],
+      "js": ["dom-to-image.min.js", "quotes.js", "content.js"],
       "css": ["content.css"],
       "run_at": "document_idle"
     }
