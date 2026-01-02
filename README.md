@@ -47,6 +47,10 @@ In a world full of digital noise, maintaining focus is a superpower. Social medi
 
 **Note for Firefox users:** The temporary add-on will be removed when you close Firefox. For permanent installation, you'll need to package and sign the extension through Firefox Add-ons (AMO), or use Firefox Developer Edition/Nightly with the appropriate settings.
 
+📖 **For detailed Firefox installation instructions, see [FIREFOX_INSTALLATION.md](FIREFOX_INSTALLATION.md)**
+
+📚 **For technical details about browser compatibility, see [BROWSER_SUPPORT.md](BROWSER_SUPPORT.md)**
+
 ## 🤝 How to Contribute
 
 Contributions are welcome and greatly appreciated! You can contribute in several ways:
