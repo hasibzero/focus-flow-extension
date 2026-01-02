@@ -1,9 +1,4 @@
 <a href="https://www.producthunt.com/products/focus-flow-ultimate-newsfeed-eradicator?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-focus&#0045;flow&#0045;ultimate&#0045;newsfeed&#0045;eradicator" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1031995&theme=light&t=1761684049379" alt="Focus&#0032;Flow&#0058;&#0032;Ultimate&#0032;Newsfeed&#0032;Eradicator - Focus&#0032;Flow&#0032;replaces&#0032;distracting&#0032;news&#0032;feeds&#0032;with&#0032;quotes&#0046; | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
-<style>
-  a{
-  text-align:center
-  }
-</style>
 
 <div align="center">
   <a href="https://github.com/hasibzero/focus-flow-extension/archive/refs/heads/main.zip">
