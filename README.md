@@ -5,6 +5,14 @@
 
 [![Focus Flow Install](https://img.shields.io/badge/Focus_Flow-Install_Now-blue?style=flat-square&logo=google-chrome&logoColor=white)](https://github.com/hasibzero/focus-flow-extension/archive/refs/heads/main.zip)
 
+<div align="center">
+  <a href="https://github.com/hasibzero/focus-flow-extension/archive/refs/heads/main.zip" style="text-decoration:none;">
+    <img src="https://raw.githubusercontent.com/anderson-rodriguez/badges/main/buttons/download-button.svg" width="200">
+  </a>
+  <p><i>Stay focused and productive with Focus Flow 🌟</i></p>
+</div>
+
+
 # 🌟 Focus Flow: The Ultimate News Feed Eradicator for Chrome & Firefox
 
 *Keywords: focus, productivity, chrome extension, firefox addon, block distractions, social media blocker, news feed eradicator, digital wellbeing, study tool, anti-procrastination*
