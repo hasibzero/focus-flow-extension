@@ -6,10 +6,11 @@
 [![Focus Flow Install](https://img.shields.io/badge/Focus_Flow-Install_Now-blue?style=flat-square&logo=google-chrome&logoColor=white)](https://github.com/hasibzero/focus-flow-extension/archive/refs/heads/main.zip)
 
 <div align="center">
-  <a href="https://github.com/hasibzero/focus-flow-extension/archive/refs/heads/main.zip" style="text-decoration:none;">
-    <img src="https://raw.githubusercontent.com/anderson-rodriguez/badges/main/buttons/download-button.svg" width="200">
+  <a href="https://github.com/hasibzero/focus-flow-extension/archive/refs/heads/main.zip">
+    <img src="https://img.shields.io/badge/Download_Focus_Flow-Direct_ZIP-6a82fb?style=for-the-badge&logo=github&logoColor=white&labelColor=fc5c7d" alt="Download Extension" height="50">
   </a>
-  <p><i>Stay focused and productive with Focus Flow 🌟</i></p>
+  <br>
+  <sub><i>Click to download the latest version as a ZIP file</i></sub>
 </div>
 
 
