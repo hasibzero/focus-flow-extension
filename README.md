@@ -47,10 +47,10 @@
 1. Open a supported social media website.
 2. Focus Flow automatically replaces the distracting feed with quotes.
 3. Open extension settings to:
-   - switch themes,
-   - set feed access timers,
-   - enable bedtime mode,
-   - add custom quotes.
+   - Switch themes,
+   - Set feed access timers,
+   - Enable bedtime mode,
+   - Add custom quotes.
 
 ---
 
