@@ -1,6 +1,6 @@
 # 🌟 Focus Flow — Reclaim Your Attention
 
-> **Focus Flow** is a powerful browser extension for **Google Chrome** & **Firefox** that helps you reclaim your time and attention by replacing distracting social media news feeds with clean, inspirational quotes.
+> **Focus Flow** is a powerful browser extension for **Google Chrome** and **Firefox** that helps you reclaim your time and attention by replacing distracting social media news feeds with clean, inspirational quotes.
 
 <div align="center">
   <img src="download.png" alt="Focus Flow preview" width="700" />
@@ -38,7 +38,7 @@
 4. Click **Load Temporary Add-on**.
 5. Select any file from this project folder.
 
-📖 See [FIREFOX_INSTALLATION.md](FIREFOX_INSTALLATION.md) for full Firefox setup details.
+📖 See [FIREFOX_INSTALLATION.md](FIREFOX_INSTALLATION.md) for full Firefox setup details, including temporary add-on limitations and permanent-install options.
 
 ---
 
