@@ -33,7 +33,7 @@
 ### 🦊 Mozilla Firefox
 
 1. Download or clone this repository.
-2. In the project folder, rename `manifest_firefox.json` to `manifest.json`.
+2. In the project folder, back up the existing `manifest.json`, then rename `manifest_firefox.json` to `manifest.json`.
 3. Open `about:debugging#/runtime/this-firefox`.
 4. Click **Load Temporary Add-on**.
 5. Select any file from this project folder.
